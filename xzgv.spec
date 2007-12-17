@@ -8,7 +8,6 @@ Group:		Graphics
 Source0:	%{name}-%{version}.tar.bz2
 
 URL:		http://xzgv.browser.org/#download
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 #ExclusiveArch:	%ix86
 BuildRequires:	jpeg-devel tiff-devel imlib-devel
 
