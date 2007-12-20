@@ -9,7 +9,7 @@ Source0:	%{name}-%{version}.tar.bz2
 
 URL:		http://xzgv.browser.org/#download
 #ExclusiveArch:	%ix86
-BuildRequires:	jpeg-devel tiff-devel imlib-devel
+BuildRequires:	jpeg-devel tiff-devel imlib-devel gtk-devel
 
 %description
 xzgv is a picture viewer for X, with a thumbnail-based file selector. 
