@@ -44,15 +44,15 @@ make prefix=%buildroot/%_prefix \
      MANDIR=%buildroot/%_mandir/man1 \
      INFODIR=%buildroot/%_infodir install
 
-install -d %buildroot/%_menudir
-cat > %buildroot/%_menudir/%name <<EOF
-?package(%name):\
-command="xzgv"\
-title="Xzgv"\
-longtitle="Image viewer"\
-needs="x11"\
-icon="graphics_section.png"\
-section="Multimedia/Graphics"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
+[Desktop Entry]
+Type=Application
+Exec=xzgv
+Name=Xzgv
+Comment=Image viewer
+Icon=graphics_section
+Categories=Graphics;Viewer;
 EOF
  
 chmod 0644 README COPYING TODO ChangeLog
@@ -72,7 +72,7 @@ rm -fr %buildroot
 %defattr (-,root,root)
 %doc README COPYING TODO ChangeLog
 %_bindir/*
-%_menudir/*
+%{_datadir}/applications/mandriva-*.desktop
 %_mandir/man1/*
 %_infodir/*.bz2
 # Laurent 0.7-3 don"t add dir conflict with info-install
