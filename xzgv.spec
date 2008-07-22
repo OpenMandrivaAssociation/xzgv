@@ -1,7 +1,7 @@
 Summary:	A GTK+/Imlib-based picture viewer for X
 Name:		xzgv
 Version: 0.8
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPL
 Group:		Graphics
 
