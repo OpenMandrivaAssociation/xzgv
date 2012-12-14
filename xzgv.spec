@@ -1,16 +1,17 @@
 Summary:	A GTK+/Imlib-based picture viewer for X
 Name:		xzgv
-Version: 0.8
-Release: %mkrel 4
+Version:	0.8
+Release:	4
 License:	GPL
 Group:		Graphics
-
-Source0:	%{name}-%{version}.tar.bz2
-
 URL:		http://xzgv.browser.org/#download
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Source0:	%{name}-%{version}.tar.bz2
 #ExclusiveArch:	%ix86
-BuildRequires:	jpeg-devel tiff-devel imlib-devel gtk-devel gdkimlib-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	tiff-devel
+BuildRequires:	imlib-devel
+BuildRequires:	gtk-devel
+BuildRequires:	gdkimlib-devel
 
 %description
 xzgv is a picture viewer for X, with a thumbnail-based file selector. 
@@ -39,13 +40,13 @@ that. So anyway, it's just terribly great. :-)
 %endif
 
 %install
-make prefix=%buildroot/%_prefix \
-     BINDIR=%buildroot/%_bindir \
-     MANDIR=%buildroot/%_mandir/man1 \
-     INFODIR=%buildroot/%_infodir install
+make prefix=%{buildroot}/%_prefix \
+     BINDIR=%{buildroot}/%_bindir \
+     MANDIR=%{buildroot}/%_mandir/man1 \
+     INFODIR=%{buildroot}/%_infodir install
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
-cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
+mkdir -p %{buildroot}%{_datadir}/applications/
+cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%name.desktop
 [Desktop Entry]
 Type=Application
 Exec=xzgv
@@ -57,28 +58,12 @@ EOF
  
 chmod 0644 README COPYING TODO ChangeLog
  
-%post
-%if %mdkversion < 200900
-%update_menus
-%endif
-%_install_info %name.info
- 
-%postun
-%if %mdkversion < 200900
-%clean_menus
-%endif
-%_remove_install_info %name.info
-
-%clean
-rm -fr %buildroot
-
 %files
-%defattr (-,root,root)
 %doc README COPYING TODO ChangeLog
-%_bindir/*
+%{_bindir}/*
 %{_datadir}/applications/mandriva-*.desktop
-%_mandir/man1/*
-%_infodir/*.bz2
+%{_mandir}/man1/*
+%{_infodir}/*
 # Laurent 0.7-3 don"t add dir conflict with info-install
 #%_infodir/dir
 
