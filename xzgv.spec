@@ -1,11 +1,11 @@
 Summary:	A GTK+/Imlib-based picture viewer for X
 Name:		xzgv
-Version:	0.8
-Release:	4
+Version:	0.9.1
+Release:	1
 License:	GPL
 Group:		Graphics
-URL:		http://xzgv.browser.org/#download
-Source0:	%{name}-%{version}.tar.bz2
+URL:		http://sourceforge.net/projects/xzgv/
+Source0:	%{name}-%{version}.tar.gz
 #ExclusiveArch:	%ix86
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
@@ -40,13 +40,13 @@ that. So anyway, it's just terribly great. :-)
 %endif
 
 %install
-make prefix=%{buildroot}/%_prefix \
-     BINDIR=%{buildroot}/%_bindir \
-     MANDIR=%{buildroot}/%_mandir/man1 \
-     INFODIR=%{buildroot}/%_infodir install
+make prefix=%{buildroot}/%{_prefix} \
+     BINDIR=%{buildroot}/%{_bindir} \
+     MANDIR=%{buildroot}/%{_mandir}/man1 \
+     INFODIR=%{buildroot}/%{_infodir} install
 
 mkdir -p %{buildroot}%{_datadir}/applications/
-cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%name.desktop
+cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
 Exec=xzgv
