@@ -4,7 +4,7 @@ Version:	0.9.1
 Release:	1
 License:	GPL
 Group:		Graphics
-URL:		http://sourceforge.net/projects/xzgv/
+URL:		https://sourceforge.net/projects/xzgv/
 Source0:	%{name}-%{version}.tar.gz
 #ExclusiveArch:	%ix86
 BuildRequires:	jpeg-devel
