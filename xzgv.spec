@@ -7,6 +7,7 @@ Group:		Graphics
 URL:		https://sourceforge.net/projects/xzgv/
 Source0:	%{name}-%{version}.tar.gz
 #ExclusiveArch:	%ix86
+BuildRequires:	make
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
 BuildRequires:	imlib-devel
